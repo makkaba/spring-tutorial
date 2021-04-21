@@ -30,5 +30,9 @@ public class MemberRepositoryTest {
         //then
         Assertions.assertThat(foundMember.getId()).isEqualTo(member.getId());
         Assertions.assertThat(foundMember.getUsername()).isEqualTo(member.getUsername());
+
+        //영속성 컨텍스트에서 같은 오브젝트라고 판단해서
+        //select 쿼리 조차 날리지 않는다
+        Assertions.assertThat(foundMember).isEqualTo(member);
     }
 }
